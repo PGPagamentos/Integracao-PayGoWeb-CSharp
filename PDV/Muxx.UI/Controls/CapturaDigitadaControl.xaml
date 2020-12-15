@@ -1,0 +1,44 @@
+﻿<src:CapturaControl x:Class="Muxx.UI.Controls.CapturaDigitadaControl"
+                    xmlns:src="clr-namespace:Muxx.UI.Controls.Extend"
+                    xmlns:MuxxUI="clr-namespace:Muxx.UI.Controls"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    mc:Ignorable="d" 
+                    MinWidth="300"
+                    Height="auto"
+                    Width="auto"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    PreviewKeyDown="CapturaControl_PreviewKeyDown">
+
+   <StackPanel Name="stkPrincipal">
+
+      <MuxxUI:DisplayControl
+         x:Name="dspDisplay" />
+
+      <StackPanel Name="stkInput">
+
+         <TextBox Name="txtValor" 
+                  HorizontalAlignment="Stretch"
+                  Margin="10"
+                  Padding="10" />
+
+         <PasswordBox Name="txtValorPassword" 
+                      HorizontalAlignment="Stretch"
+                      Margin="10"
+                      Padding="10"
+                      PasswordChar="*" />
+
+         <Button Name="btnEnviar" 
+                 Margin="10,0,10,10"
+                 Padding="10"
+                 IsDefault="True" 
+                 Content="Enviar"  
+                 Click="btnEnviar_Click" />
+
+      </StackPanel>
+
+   </StackPanel>
+</src:CapturaControl>

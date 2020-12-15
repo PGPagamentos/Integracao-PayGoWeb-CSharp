@@ -1,0 +1,25 @@
+﻿<src:CapturaControl x:Class="Muxx.UI.Controls.CapturaQRCodeControl"
+                    xmlns:src="clr-namespace:Muxx.UI.Controls.Extend"
+                    xmlns:MuxxUI="clr-namespace:Muxx.UI.Controls"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:local="clr-namespace:Muxx.UI.Controls"
+                    MaxWidth="400"
+                    Height="auto"
+                    Width="auto">
+   <StackPanel>
+
+      <MuxxUI:DisplayControl
+            x:Name="dspDisplay" />
+      
+      <!--QRCode-->
+      <Image Name="imgDisplay"
+             Height="250"
+             Width="250"
+             Margin="10" 
+             MouseLeftButtonDown="imgDisplay_MouseLeftButtonDown" />
+      
+   </StackPanel>
+</src:CapturaControl>

@@ -1,0 +1,176 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:MuxxUI="clr-namespace:Muxx.UI.Controls">
+
+   <!--
+   Editar o arquivo App.xaml, adicionando:
+   
+   <Application ...
+      <Application.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               <ResourceDictionary Source="pack://application:,,,/Muxx.UI;component/Themes/Muxx.UI.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+      </Application.Resources>
+   </Application>
+   -->
+
+   <SolidColorBrush x:Key="Background" Color="#0E4C73" />
+   <SolidColorBrush x:Key="BackgroundHoverColor" Color="#0B3C5C" />
+
+   <!--
+   <SolidColorBrush x:Key="Background" Color="#242424" />
+   <SolidColorBrush x:Key="BackgroundHoverColor" Color="#B3242424" />
+   -->
+   
+   <!--***************************************************************************************************-->
+   <!--                                      Muxx.UI Styles                                                -->
+   <!--***************************************************************************************************-->
+
+   <Style x:Key="MuxxUIShared" TargetType="{x:Type UserControl}">
+
+      <Setter Property="FontFamily" Value="Courier New" />
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="FontSize" Value="30" />
+      <Setter Property="Background" Value="{DynamicResource Background}" />
+
+      <!-- Shared Setters -->
+      <Style.Resources>
+
+         <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+         </Style>
+
+         <Style TargetType="{x:Type ListView}">
+            <Setter Property="Background" Value="{DynamicResource Background}" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="White" />
+         </Style>
+
+         <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <!-- Disable MouseOver effect - Start -->
+            <Setter Property="Template">
+               <Setter.Value>
+                  <ControlTemplate TargetType="ListViewItem">
+                     <Border x:Name="border" 
+                             Background="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                           <VisualStateGroup x:Name="CommonStates">
+                              <VisualState x:Name="Normal" />
+                              <VisualState x:Name="Disabled" />
+                           </VisualStateGroup>
+                           <VisualStateGroup x:Name="SelectionStates">
+                              <VisualState x:Name="Unselected" />
+                              <VisualState x:Name="Selected">
+                                 <Storyboard>
+                                    <ColorAnimationUsingKeyFrames 
+                                       Storyboard.TargetName="border"
+                                       Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                       <EasingColorKeyFrame KeyTime="0" 
+                                                            Value="LightBlue" />
+                                    </ColorAnimationUsingKeyFrames>
+                                 </Storyboard>
+                              </VisualState>
+                              <VisualState x:Name="SelectedUnfocused">
+                                 <Storyboard>
+                                    <ColorAnimationUsingKeyFrames 
+                                       Storyboard.TargetName="border"
+                                       Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                       <EasingColorKeyFrame KeyTime="0" 
+                                                            Value="SkyBlue" />
+                                    </ColorAnimationUsingKeyFrames>
+                                 </Storyboard>
+                              </VisualState>
+                           </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter/>
+                     </Border>
+                  </ControlTemplate>
+               </Setter.Value>
+            </Setter>
+            <!-- Disable MouseOver effect - End -->
+
+            <Style.Triggers>
+               <!-- Selected Item effect - Start -->
+               <MultiTrigger>
+                  <MultiTrigger.Conditions>
+                     <Condition Property="IsSelected" Value="true" />
+                     <!--
+                     <Condition Property="Selector.IsSelectionActive" Value="true" />
+                     -->
+                  </MultiTrigger.Conditions>
+                  <Setter Property="Background">
+                     <Setter.Value>
+                        <SolidColorBrush Color="White" Opacity="0.5" />
+                     </Setter.Value>
+                  </Setter>
+                  <Setter Property="LayoutTransform">
+                     <Setter.Value>
+                        <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                     </Setter.Value>
+                  </Setter>
+
+                  <Setter Property="Template">
+                     <Setter.Value>
+
+                        <ControlTemplate TargetType="ListViewItem">
+                           <Border x:Name="border"
+                                   SnapsToDevicePixels="true" 
+                                   BorderBrush="{TemplateBinding BorderBrush}" 
+                                   BorderThickness="{TemplateBinding BorderThickness}" 
+                                   Background="{TemplateBinding Background}"
+                                   CornerRadius="5">
+
+                              <ContentControl SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              Foreground="{DynamicResource Background}"
+                                              Margin="10,0,0,0"
+                                              VerticalAlignment="Stretch"
+                                              Content="{TemplateBinding Content}" />
+                           </Border>
+                        </ControlTemplate>
+
+                     </Setter.Value>
+                  </Setter>
+
+               </MultiTrigger>
+               <!-- Selected Item effect - End -->
+            </Style.Triggers>
+         </Style>
+
+         <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="CaretBrush" Value="White" />
+         </Style>
+
+         <Style TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="CaretBrush" Value="White" />
+         </Style>
+      </Style.Resources>
+   </Style>
+
+   <Style TargetType="{x:Type MuxxUI:DisplayControl}" BasedOn="{StaticResource MuxxUIShared}">
+
+   </Style>
+
+   <Style TargetType="{x:Type MuxxUI:CapturaMenuControl}" BasedOn="{StaticResource MuxxUIShared}">
+
+   </Style>
+
+   <Style TargetType="{x:Type MuxxUI:CapturaDigitadaControl}" BasedOn="{StaticResource MuxxUIShared}">
+
+   </Style>
+
+   <Style TargetType="{x:Type MuxxUI:CapturaQRCodeControl}" BasedOn="{StaticResource MuxxUIShared}">
+
+   </Style>
+
+   <!--***************************************************************************************************-->
+   <!--***************************************************************************************************-->
+
+</ResourceDictionary>

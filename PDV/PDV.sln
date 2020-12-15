@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDV", "PDV\PDV.csproj", "{AA108F1B-AEB0-4753-A43F-3CFCF344F197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxx.Lib", "Muxx.Lib\Muxx.Lib.csproj", "{EFB6568B-79F6-40D1-8E22-219C47C0990D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muxx.UI", "Muxx.UI\Muxx.UI.csproj", "{CF20B367-C971-4810-BB83-5DE4D85BB38D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA108F1B-AEB0-4753-A43F-3CFCF344F197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA108F1B-AEB0-4753-A43F-3CFCF344F197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA108F1B-AEB0-4753-A43F-3CFCF344F197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA108F1B-AEB0-4753-A43F-3CFCF344F197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB6568B-79F6-40D1-8E22-219C47C0990D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB6568B-79F6-40D1-8E22-219C47C0990D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB6568B-79F6-40D1-8E22-219C47C0990D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB6568B-79F6-40D1-8E22-219C47C0990D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF20B367-C971-4810-BB83-5DE4D85BB38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF20B367-C971-4810-BB83-5DE4D85BB38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF20B367-C971-4810-BB83-5DE4D85BB38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF20B367-C971-4810-BB83-5DE4D85BB38D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10C5CAAD-313E-4D9B-B648-4B03C6820917}
+	EndGlobalSection
+EndGlobal

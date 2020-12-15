@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFB6568B-79F6-40D1-8E22-219C47C0990D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Muxx.Lib</RootNamespace>
+    <AssemblyName>Muxx.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Info.cs" />
+    <Compile Include="Entities\Param.cs" />
+    <Compile Include="Exceptions\EventNotDefinedExceptions.cs" />
+    <Compile Include="Exceptions\FunctionNotDefinedExceptions.cs" />
+    <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Fluxos.cs" />
+    <Compile Include="Services\PGWebLib.cs" />
+    <Compile Include="ValueObjects\Capturas\Captura.cs" />
+    <Compile Include="ValueObjects\Capturas\CapturaCodigoBarras.cs" />
+    <Compile Include="ValueObjects\Capturas\CapturaDadosCartao.cs" />
+    <Compile Include="ValueObjects\Enums\DebugType.cs" />
+    <Compile Include="ValueObjects\Enums\MUXTAG.cs" />
+    <Compile Include="ValueObjects\Enums\PWCNF.cs" />
+    <Compile Include="ValueObjects\Enums\PWDAT.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_AUTCAP.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_CARDTYPE.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_CNFREQ.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_DSPQRPREF.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_FINTYPE.cs" />
+    <Compile Include="ValueObjects\Enums\PWINFO_PAYMNTTYPE.cs" />
+    <Compile Include="ValueObjects\Enums\PWOPER.cs" />
+    <Compile Include="ValueObjects\Enums\PWOPTYPE.cs" />
+    <Compile Include="ValueObjects\Enums\PWRET.cs" />
+    <Compile Include="ValueObjects\Structs\PW_GetData.cs" />
+    <Compile Include="ValueObjects\Structs\PW_Operations.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PGWebLib\PGWebLib.h" />
+    <EmbeddedResource Include="PGWebLib\PGWebLib32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PGWebLib\Certificado.crt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility">
+      <Version>0.2.12-alpha</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" "C:\Work\Nuget\packages\eazfuscator.net.3.3\tools\Eazfuscator.NET.exe" "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 3.3</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

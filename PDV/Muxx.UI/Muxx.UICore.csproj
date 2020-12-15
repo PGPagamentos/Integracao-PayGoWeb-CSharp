@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+   <PropertyGroup>
+      <!--net462, netstandard2.0, netcoreapp3.1-->
+      <TargetFramework>netcoreapp3.1</TargetFramework>
+      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+      <UseWPF>true</UseWPF>
+      <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+      <AssemblyName>Muxx.UI</AssemblyName>
+      <RootNamespace>Muxx.UI</RootNamespace>
+      <Platforms>AnyCPU;x86;x86</Platforms>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+      <OutputPath>bin\Debug\</OutputPath>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+      <OutputPath>bin\Release\</OutputPath>
+   </PropertyGroup>
+
+   <ItemGroup>
+      <None Remove="Muxx.UI.csproj.vspscc" />
+   </ItemGroup>
+
+   <ItemGroup>
+      <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility">
+         <Version>0.2.12-alpha</Version>
+         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+         <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="QRCoder">
+         <Version>1.3.9</Version>
+      </PackageReference>
+   </ItemGroup>
+
+   <!-- Need to conditionally bring in references for the .NET Framework 4.6.2 target -->
+   <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+      <Reference Include="PresentationCore" />
+      <Reference Include="PresentationFramework" />
+      <Reference Include="System.Data.DataSetExtensions" />
+      <Reference Include="System.Xaml" />
+      <Reference Include="WindowsBase" />
+   </ItemGroup>
+
+   <ItemGroup>
+      <ProjectReference Include="..\Muxx.Lib\Muxx.LibCore.csproj" />
+   </ItemGroup>
+
+</Project>

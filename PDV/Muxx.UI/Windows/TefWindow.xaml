@@ -1,0 +1,19 @@
+﻿<Window x:Class="Muxx.UI.Windows.TefWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        AllowsTransparency="True"
+        Background="{DynamicResource Background}"
+        WindowStyle="None"      
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        Loaded="Window_Loaded"
+        MouseDown="Window_MouseDown"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Closing="Window_Closing"
+        Closed="Window_Closed">
+   <StackPanel>
+      <DockPanel LastChildFill="True">
+         <ContentControl Name="cttPrincipal"></ContentControl>
+      </DockPanel>
+   </StackPanel>
+</Window>
